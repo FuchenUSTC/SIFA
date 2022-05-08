@@ -1,0 +1,40 @@
+dataset:
+  time_dim: T
+  crop_size: 224
+  eva_crop_size: 256
+  eva_num_crop: 3
+  num_workers: 8
+  no_horizontal_flip: False
+  rand_augment: False
+  use_flow: False
+
+optimizer:
+  warmup_multiplier: 100
+  lr_scheduler: cosine
+  weight_decay: 0.0001
+  momentum: 0.9
+  nesterov: True
+  clip_gradient: 40
+  loss_weight: 1.
+  num_gpu: 4
+  label_smooth: False
+  eva_inter: True
+  eva_inter_freq: 1
+
+sampler:
+
+network:
+  pooling_name: PoolingAverage
+  frozen_bn: False
+  transfer_weights: False
+  remove_fc: False
+  pretrained_model: ''
+
+logging:
+  print_freq: 10
+  save_freq: 10
+  output_dir: ./output
+
+
+SIFA:
+  sifa_kernel:

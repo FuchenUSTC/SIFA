@@ -1,0 +1,29 @@
+dataset:
+  # data
+  dataset_class: video_dataset
+  format: FRAME
+  list_file: dataset/ssv1_frame_train_list.txt
+  root_path: /export2/home/v-fulong/data/20bn-something-something-v1
+  num_classes: 174
+
+  eva_list_file: dataset/ssv1_frame_val_list.txt
+  eva_root_path: /export2/home/v-fulong/data/20bn-something-something-v1
+  val_video_num: 11522
+
+  # random augmentation parameters (estimated)
+  transform_type: rand_augment
+  ra_n: 2
+  ra_m: 27
+
+  no_horizontal_flip: True
+
+optimizer:
+  # optimization
+  base_learning_rate: 0.02
+  warmup_epoch: 5
+  epochs: 64
+  loss_weight: 1.
+
+network:
+  dropout_ratio: 0.5
+
