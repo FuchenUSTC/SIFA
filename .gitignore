@@ -1,0 +1,16 @@
+/output/
+/pretrained_weights/
+/weights/
+/trained_model/
+/.vscode/
+DEFCOR_AGG.egg-info/
+build/
+lib/
+
+.ipynb_checkpoints/
+.__pycache__/
+*.pyc
+*.pth
+*_debug.py
+*_debug.sh
+*.so

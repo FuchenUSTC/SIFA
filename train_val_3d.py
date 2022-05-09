@@ -13,11 +13,11 @@ from torch.utils.tensorboard import SummaryWriter
 from torch.nn.parallel import DistributedDataParallel
 from torchvision import transforms
 
-from sifa_util import clip_transforms
-from sifa_util.clip_augmentations import ClipRandAugment
-from sifa_util.util import ClipGaussianBlur, AverageMeter, merge_scores, accuracy, reduce_tensor
-from sifa_util.lr_scheduler import get_scheduler
-from sifa_util.logger import setup_logger
+from util import clip_transforms
+from util.clip_augmentations import ClipRandAugment
+from util.util import ClipGaussianBlur, AverageMeter, merge_scores, accuracy, reduce_tensor
+from util.lr_scheduler import get_scheduler
+from util.logger import setup_logger
 from layer.LSR import *
 from dataset.video_merge_dataset import VideoMergeDataset
 from dataset.video_dataset import VideoRGBTrainDataset, VideoRGBTestDataset
@@ -60,7 +60,7 @@ def parse_option():
     args = parser.parse_args()
 
     # load config file, default + base + exp
-    config_default = yaml.load(open('./base_sh/default.yml', 'r'))
+    config_default = yaml.load(open('./base_config/default.yml', 'r'))
     config_exp = yaml.load(open(args.config_file, 'r'))
     if 'base' in config_exp:
         config_base = yaml.load(open(config_exp['base'], 'r'))
@@ -367,10 +367,15 @@ def eval(epoch, val_loader, model, args):
     return acc
 
 
-
 if __name__ == '__main__':
     opt = parse_option()
-    torch.cuda.set_device(opt.local_rank)
+    if 'RANK' in os.environ and 'WORLD_SIZE' in os.environ:
+        opt.rank = int(os.environ["RANK"])
+        opt.world_size = int(os.environ['WORLD_SIZE'])
+        opt.local_rank = int(os.environ['LOCAL_RANK'])
+        torch.cuda.set_device(opt.local_rank)
+    else:
+        torch.cuda.set_device(opt.local_rank)
     torch.distributed.init_process_group(backend='nccl', init_method='env://')
     cudnn.benchmark = True
 

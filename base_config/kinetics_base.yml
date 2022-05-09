@@ -1,0 +1,26 @@
+dataset:
+  # data
+  dataset_class: video_dataset
+  format: LMDB
+  list_file: dataset/kinetics_frame128_train_list.txt
+  root_path: /home/longfuchen/longfuchen.49/export2/home/v-fulong/data_k400
+  num_classes: 400
+
+  eva_list_file: dataset/kinetics_frame128_val_list.txt
+  eva_root_path: /home/longfuchen/longfuchen.49/export2/home/v-fulong/data_k400
+  val_video_num: 19751
+
+  # random augmentation parameters (estimated)
+  rand_augment: False
+  ra_n: 1
+  ra_m: 25
+
+optimizer:
+  # optimization
+  base_learning_rate: 0.04
+  warmup_epoch: 1
+  epochs: 128
+  loss_weight: 4.
+
+network:
+  dropout_ratio: 0.5

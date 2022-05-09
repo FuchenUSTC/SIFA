@@ -1,0 +1,37 @@
+base: base_config/kinetics_base.yml
+
+#sampling
+sampler:
+  num_clips: 1 # the eval num clips during inter evaluation
+  num_segments: 1
+  clip_length: 16
+  num_steps: 1
+  eva_num_segments: 1
+  eva_num_clips: 10
+  # train
+  batch_size: 16
+  iter_size: 4
+
+network:
+  # network
+  net_name: c2d_sifa_resnet50
+  # optimization
+  pretrained_model: pretrained_weights/resnet50-19c8e357.pth
+  eva_model: trained_model/k400-res50/c2d_sifa_resnet50-1x16x1.k400.pth
+
+  remove_fc: True
+  transfer_weights: True
+  remove_defcor_weight: False
+  frozen_bn: False
+  resume: False
+  reverse: False
+
+optimizer:
+  # optimization
+  base_learning_rate: 0.04
+  eva_inter_freq: 10
+  epochs: 64
+
+SIFA:
+  sifa_kernel: [1,3,3,3]
+

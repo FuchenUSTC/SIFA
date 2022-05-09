@@ -3,11 +3,11 @@ dataset:
   dataset_class: video_dataset
   format: FRAME
   list_file: dataset/ssv1_frame_train_list.txt
-  root_path: /export2/home/v-fulong/data/20bn-something-something-v1
+  root_path: /home/longfuchen/longfuchen.49/export2/home/v-fulong/data/20bn-something-something-v1
   num_classes: 174
 
   eva_list_file: dataset/ssv1_frame_val_list.txt
-  eva_root_path: /export2/home/v-fulong/data/20bn-something-something-v1
+  eva_root_path: /home/longfuchen/longfuchen.49/export2/home/v-fulong/data/20bn-something-something-v1
   val_video_num: 11522
 
   # random augmentation parameters (estimated)

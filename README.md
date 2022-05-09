@@ -45,15 +45,15 @@ cp _ext.cpython-38-x86_64-linux-gnu.so ../
 
 If the frame data has been prepared, please run 
 ```
-python -m torch.distributed.launch --nproc_per_node=4 train_val_3d.py --config_file=record/c2d_sifa_resnet50-1x16x1.k400.yml
+python -m torch.distributed.launch --nproc_per_node=4 train_val_3d.py --config_file=settings/c2d_sifa_resnet50-1x16x1.k400.yml
 ```
 or 
 ```
-python -m torch.distributed.launch --nproc_per_node=4 train_val_3d.py --config_file=record/c2d_sifa_swin-b-1x64x2.k400.yml
+python -m torch.distributed.launch --nproc_per_node=4 train_val_3d.py --config_file=settings/c2d_sifa_swin-b-1x64x2.k400.yml
 ```
 for the training of SIFA-Net or SIFA-Transformer.
 
-The related training configuration files can be checked in the `.yml` files in the folder of `./base_sh/` and `./record`.
+The related training configuration files can be checked in the `.yml` files in the folder of `./base_config/` and `./settings`.
 
 
 # Citation
