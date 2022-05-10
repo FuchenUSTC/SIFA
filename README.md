@@ -29,7 +29,7 @@ Motion, as the uniqueness of a video, has been critical to the development of vi
 - Pytorch 1.7
 - CUDA 10.1
 - cuDNN 8.0
-- GPU NVIDIA Tesla V100 (16GB x8)
+- GPU NVIDIA Tesla V100 (16GB x4)
 
 To guarantee the success of compiling SIFA cuda kernel, the nvcc cuda compiler should be installed in the environment. We have integrated the complete running environment into a docker image and will release it on DockerHub in the future.
 
