@@ -239,7 +239,7 @@ class DEFLocalTransBottleneck(Bottleneck):
 class C2D_SIFA_ResNet(nn.Module):
     def __init__(self, block, layers, pooling_arch, num_classes=400, dropout_ratio=0.5, zero_init_residual=True,
                  groups=1, width_per_group=64, replace_stride_with_dilation=None,
-                 norm_layer=None, deep_stem=False, block_partial=2, sifa_kernel=[1, 3, 3, 3], 
+                 norm_layer=None, deep_stem=False, sifa_kernel=[1, 3, 3, 3], 
                  dilation_size=[1, 1, 1, 1], cor_group_num=[1, 1, 1, 1], clip_length=16):
         super(C2D_SIFA_ResNet, self).__init__()       
         if norm_layer is None:

@@ -4,12 +4,13 @@ base: base_config/kinetics_base.yml
 sampler:
   num_clips: 1 # the eval num clips during inter evaluation
   num_segments: 1
-  clip_length: 16
+  clip_length: 32
   num_steps: 1
   eva_num_segments: 1
   eva_num_clips: 20
   # train
-  batch_size: 24
+  #batch_size: 12 # for train
+  batch_size: 48 # for val
   iter_size: 4
 
 network:
@@ -17,7 +18,7 @@ network:
   net_name: c2d_sifa_resnet50
   # optimization
   pretrained_model: pretrained_weights/resnet50-19c8e357.pth
-  eva_model: trained_model/k400-res50/c2d_sifa_resnet50-1x16x1.k400.pth
+  eva_model: trained_model/k400-res50/c2d_sifa_resnet50-1x32x1.k400.pth
 
   remove_fc: True
   transfer_weights: True
